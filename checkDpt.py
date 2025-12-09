@@ -1,10 +1,15 @@
 # importing required libraries
 import mysql.connector
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
  
 dataBase = mysql.connector.connect(
-  host ="localhost",                # Localhost for local connection
-  user ="user",
-  passwd ="password"
+  host=os.getenv("DB_HOST"),              
+  user=os.getenv("DB_USER"),
+  passwd=os.getenv("DB_PASSWORD")
 )
 
 print(dataBase)
